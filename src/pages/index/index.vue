@@ -1,9 +1,8 @@
 <template>
+  <tabbar></tabbar>
   <view class="content">
     <up-swiper
             :list="list1"
-            @change="change"
-            @click="click"
             class="swiper"
     ></up-swiper>
     <view class="signIn_View">
@@ -69,8 +68,10 @@
             <up-image style="margin-right: 5rpx;" src="../../static/card/male.png" class="squareImage" width="100px" height="100px" ></up-image>
             <up-image style="margin-right: 5rpx;" src="../../static/card/male.png" class="squareImage" width="100px" height="100px" ></up-image>
           </view>
-          <up-button style="width: 100rpx;flex-direction:row-reverse;" shape="circle" type="warning" text="抽取"></up-button>
+          <view style="margin-left: auto;">
+            <up-button style="width: 100rpx;" shape="circle" type="warning" text="抽取"></up-button>
 
+          </view>
         </view>
 
       </view>
@@ -80,11 +81,13 @@
 
 <script setup >
   import { reactive } from "vue"
+  import tabbar from '@/components/tabbar.vue'
   const list1 = reactive([
     'https://cdn.uviewui.com/uview/swiper/swiper1.png',  
     'https://cdn.uviewui.com/uview/swiper/swiper2.png',  
     'https://cdn.uviewui.com/uview/swiper/swiper3.png', 
   ])
+
 
 </script>
 
@@ -97,7 +100,12 @@
     background-color: #F4F4F4;
     padding: 0rpx 20rpx;
     box-sizing: border-box;
+    height: 100%;
+    overflow: hidden;
+    martop: 20rpx;
   }
+
+
   .swiper{
     width:100vw;
   }

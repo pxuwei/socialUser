@@ -1,25 +1,40 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "主页"
+				"navigationBarTitleText": "抽对象"
+			}
+		},
+		{
+			"path": "pages/myExtraction/index",
+			"style": {
+				"navigationBarTitleText": "我抽的"
+			}
+		},
+		{
+			"path": "pages/openShop/index",
+			"style": {
+				"navigationBarTitleText": "openShop"
 			}
 		}
 	],
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
+		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarBackgroundColor": "#007AFF",
+		"backgroundColor": "#FFFFFF",
+		"navigationStyle": "custom",
+		"app-plus": {
+			"titleView": false
+		}
 	},
 	"easycom": {
 		"autoscan": true,
 		"custom": {
 			"^u--(.*)": "uview-plus/components/u-$1/u-$1.vue",
 			"^up-(.*)": "uview-plus/components/u-$1/u-$1.vue",
-	        "^u-([^-].*)": "uview-plus/components/u-$1/u-$1.vue"
+			"^u-([^-].*)": "uview-plus/components/u-$1/u-$1.vue"
 		}
 	}
-
 }
