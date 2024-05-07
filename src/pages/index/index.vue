@@ -53,8 +53,9 @@
                 <span style="margin-left: 10px;font-weight:bold;">张三</span>
               </view>
               <view class="put_content">
-                <view>
-                  北京市
+                <view style="display: flex;background-color: black;color: white;width: 140rpx;border-radius: 10rpx;align-items: center;justify-content: center;height: 50rpx;">
+                  <up-icon name="map-fill" color="white" size="16"></up-icon>
+                  <span style="font-size: 25rpx">北京市</span>
                 </view>
                 <view style="width:100%">
                   {{fileList}}
@@ -81,7 +82,7 @@
                     <!-- 我的V号 -->
                   </view>
                   <view style="width: 70%;">
-                    <up-textarea v-model="value2" height="30"  placeholder="只有抽到你的人才能看到" >
+                    <up-textarea v-model="value2" height="20"  placeholder="只有抽到你的人才能看到" >
                     </up-textarea>
                     
                   </view>
@@ -193,7 +194,7 @@
     box-sizing: border-box;
     height: 100%;
     overflow: hidden;
-    martop: 20rpx;
+    margin-top: 20rpx;
   }
 
 
@@ -317,9 +318,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 15rpx;
-    border:3rpx solid black;
-    border-radius: 10rpx;
+    padding: 25rpx;
+    border:5rpx solid black;
+    border-radius: 20rpx;
+    margin-top: 15rpx;
   }
 
 
