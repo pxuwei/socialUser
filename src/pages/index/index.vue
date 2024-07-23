@@ -57,8 +57,7 @@
                   <up-icon name="map-fill" color="white" size="16"></up-icon>
                   <span style="font-size: 25rpx">北京市</span>
                 </view>
-                <view style="width:100%">
-                  {{fileList}}
+                <view style="width:100%;margin: 30rpx 0rpx">
                   <up-textarea v-model="value1" placeholder="请输入内容" >
 
                   </up-textarea>
@@ -77,7 +76,7 @@
                   <view style="width: 30%;display: flex;justify-content: center;align-items: center;">
                     
                     <up-dropdown>
-                      <up-dropdown-item v-model="contactValue" title="我的V号" :options="contactOption"></up-dropdown-item>
+                      <up-dropdown-item v-model="contactValue" :title="contactOption[contactValue].label" :options="contactOption"></up-dropdown-item>
                     </up-dropdown>
                     <!-- 我的V号 -->
                   </view>
@@ -87,10 +86,11 @@
                     
                   </view>
 
-                  <u-picker :show="pickerOpen" :columns="['V','Q']"></u-picker>
                 </view>
-              </view>                
-                <text>出淤泥而不染，濯清涟而不妖</text>
+                <u-button style="margin:30rpx 0rpx;" type="primary" text="放入"></u-button>
+
+              </view>       
+           
             </view>
 		</up-popup>
 
@@ -131,6 +131,9 @@
 
       </view>
     </view>
+
+    <button class="wechat-logo" @click="getWeChatCode">微信授权登录</button>
+
   </view>
 </template>
 
@@ -142,20 +145,77 @@
   
   const contactOption = ref([{
     label: '我的V号',
-		value: 1,
+		value: 0,
   },{
     label: '我的Q号',
-		value: 0,
+		value: 1,
 
   }])
   onLoad((optins)=>{
-    
+
+    const userId = '';
+    const code = "";
+    const urlcode = getRequestParams()
+
+    function getRequestParams() { // 截取url,判断存不存在code
+        let url = location.href;
+        let requestParams = {};
+        if (url.indexOf('?') !== -1) {
+          let str = url.substr(url.indexOf('?') + 1); // 截取?后面的内容作为字符串
+          let strs = str.split('&'); // 将字符串内容以&分隔为一个数组
+          for (let i = 0; i < strs.length; i++) {
+            requestParams[strs[i].split('=')[0]] = decodeURI(strs[i].split('=')[1]);
+            // 将数组元素中'='左边的内容作为对象的属性名，'='右边的内容作为对象对应属性的属性值
+          }
+        }
+        console.log(requestParams, '处理后的对象');
+        return requestParams;
+      }
+    if (!code && !urlcode.code &&!userId) {
+      // 不存在存储的code 不存在地址参数code 不存在userId
+      // 跳转授权页面，唤起授权
+      // uni.$u.route('/pages/splash/splash')
+        const appid = 'wxfdc86d765fced9b3'
+        const redirect_uri = "http://baidu.com" // 授权后重定向的回调链接地址,需要在公众号里面配置，不能带端口号，不能是ip地址
+        const scope = "snsapi_userinfo"; // 非静默授权：snsapi_userinfo  静默授权：snsapi_base
+
+        document.location.replace(
+          `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appid}&redirect_uri=${redirect_uri}&response_type=code&scope=${scope}&state=STATE#wechat_redirect`
+          );
+
+    } else if (urlcode.code && !userId) {
+      // 存在地址参数code 不存在userId
+      // 使用这个code 重新拉去用户信息，即请求后端接口
+      // 尤其注意：    
+      // 由于公众号的 secret 和获取到的access_token安全级别都非常高，
+      // 必须只保存在服务器，不允许传给客户端。后续刷新access_token、
+      // 通过access_token获取用户信息等步骤，也必须从服务器发起。
+    }
+
+
+
+    return
+
+
     
     // GetSquare().then((res)=>{
     //   console.log(res)
     // })
+    uni.getUserInfo({
+        provider: 'weixin',
+        success: function(info) {
+          console.log(info);
+            // 获取用户信息成功, info.authResult保存用户信息
+        },
+        fail: function(err) {
+            console.log(err);
+            // 获取用户信息失败
+        }
+    });
+
     uni.login({
-      provider:'weixin',
+      "provider": "weixin",
+      "onlyAuthorize": true, // 微信登录仅请求授权认证
       success:(res)=>{
         console.log(res)
       },
@@ -173,7 +233,7 @@
   const putOpen = ref(false)
   const putTitle = ref('')
   const fileList = ref([])
-  const contactValue = ref(1)
+  const contactValue = ref(0)
   const afterRead = ((event)=>{
     fileList.value = event
   })
@@ -189,14 +249,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #F4F4F4;
     padding: 0rpx 20rpx;
     box-sizing: border-box;
     height: 100%;
     overflow: hidden;
     margin-top: 20rpx;
   }
-
+  ::v-deep .u-dropdown__content__mask[data-v-d45d1d94]{
+    background:#FFFFFF
+  }
 
   .swiper{
     width:100vw;

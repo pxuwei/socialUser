@@ -13,11 +13,9 @@ import { onShow, onHide,onLoad } from "@dcloudio/uni-app"
 import { ref, reactive, onMounted } from 'vue';
 let current = ref(1);
 onLoad((options)=>{
-    console.log('options',options);
     current.value = options.current || 1;
 })
 onShow(()=>{
-    console.log('onShow');
 }) 
 const tabslist = reactive([
     {
@@ -31,7 +29,6 @@ const tabslist = reactive([
     },
   ])
 const changeTab =(e)=>{
-    console.log('changeTab',e);
     switch (e.index) {
         case 0:
             uni.navigateTo({

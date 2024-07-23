@@ -4,7 +4,6 @@ import configs from "@/../config.js"
 import { GetToken } from "@/utils/token.js"
 const http = new Request();
 const baseUrl = configs.baseUrl
-console.log('base',configs);
 http.setConfig((config) => { /* config 为默认全局配置*/
     config.baseURL = baseUrl; /* 根域名 */
     return config
@@ -16,7 +15,6 @@ http.interceptors.request.use(
     
 
 
-    console.log('GetToken()',GetToken());
     if (GetToken()) {
         config.header.Authorization = 'Bearer ' + GetToken()
     }
@@ -55,12 +53,10 @@ http.interceptors.response.use(
     // if (response.config.custom.verification) { // 演示自定义参数的作用
     //   return response.data
     // }
-    console.log(response);
     return response;
   },
   (response) => {
     /*  对响应错误做点什么 （statusCode !== 200）*/
-    console.log(response);
     return Promise.reject(response);
   }
 );
