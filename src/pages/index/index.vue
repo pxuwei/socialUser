@@ -24,15 +24,17 @@
 			<view class="card_left">
 				<up-image class="card_male" style="margin-right: 15rpx;" src="../../static/card/male.svg" width="104px"
 					height="108.5px"></up-image>
-          <up-image class="card_bgl" style="margin-right: 15rpx;" src="../../static/card/Subtract.svg" width="161px"
-					height="131px"></up-image>
-          <up-image class="card_gender" style="margin-right: 15rpx;" src="../../static/card/Frame@1x.svg" width="68px"
-					height="68px"></up-image>
+				<up-image class="card_bgl" style="margin-right: 15rpx;" src="../../static/card/Subtract.svg"
+					width="161px" height="131px"></up-image>
+				<up-image class="card_gender" style="margin-right: 15rpx;" src="../../static/card/Frame@1x.svg"
+					width="68px" height="68px"></up-image>
 				<span style="color: #5A8FFF;font-weight: 600;margin: 30rpx 0rpx;">男生盒子</span>
-				<up-button :ripple="true" size="medium" type="warning" @click="handleCard(1)" style="z-index: 99; width: 288rpx; height: 82rpx; background-color: #171717;"
+				<up-button :ripple="true" size="medium"  @click="handleCard(1)"
+					style="z-index: 99; width: 288rpx; height: 82rpx; background-color: #171717; color: white; border-left: 5.5rpx solid #EC5F9B; border-right: 5.5rpx solid #5A8FFF;"
 					text="放入一张男生纸条"></up-button>
-				<up-button style="margin: 20rpx 0rpx; z-index: 99; width: 288rpx; height: 82rpx; background-color: #171717;" :ripple="true" size="medium" type="warning" 
-					text="抽取一张男生纸条"></up-button>
+				<up-button
+					style="margin: 20rpx 0rpx; z-index: 99; width: 288rpx; height: 82rpx; background-color: #171717; color: white; border-left: 5.5rpx solid #EC5F9B; border-right: 5.5rpx solid #5A8FFF;"
+					:ripple="true" size="medium"  text="抽取一张男生纸条"></up-button>
 				<view style="display: flex;width: 100%;">
 					<up-button style="width: 50%;margin-right: 5rpx;" :ripple="true" size="medium" type="warning"
 						text="五连抽"></up-button>
@@ -44,26 +46,28 @@
 			<view class="card_right">
 				<up-image style="margin-right: 15rpx; z-index: 999;" src="../../static/card/female.svg" width="104px"
 					height="108.5px"></up-image>
-          <up-image class="card_bgl" style="margin-right: 15rpx;" src="../../static/card/Subtract1.svg" width="161px"
-					height="131px"></up-image>
-          <up-image class="card_gender1" style="margin-right: 15rpx;" src="../../static/card/Frame.svg" width="102px"
-					height="102px"></up-image>
+				<up-image class="card_bgl" style="margin-right: 15rpx;" src="../../static/card/Subtract1.svg"
+					width="161px" height="131px"></up-image>
+				<up-image class="card_gender1" style="margin-right: 15rpx;" src="../../static/card/Frame.svg"
+					width="102px" height="102px"></up-image>
 				<span style="color: #F978CB;font-weight: 600;margin: 30rpx 0rpx;">女生盒子</span>
-				<up-button :ripple="true" size="medium" type="warning" @click="handleCard(2)" style="z-index: 99; width: 288rpx; height: 82rpx; background-color: #171717;"
+				<up-button :ripple="true" size="medium"  @click="handleCard(2)"
+					style="z-index: 99; width: 288rpx; height: 82rpx; background-color: #171717; color: white; border-left: 5.5rpx solid #EC5F9B; border-right: 5.5rpx solid #5A8FFF;"
 					text="放入一张女生纸条"></up-button>
-				<up-button style="margin: 20rpx 0rpx; z-index: 99; width: 288rpx; height: 82rpx; background-color: #171717;" :ripple="true" size="medium" type="warning"
-					text="抽取一张女生纸条"></up-button>
+				<up-button
+					style="margin: 20rpx 0rpx; z-index: 99; width: 288rpx; height: 82rpx; background-color: #171717; color: white; border-left: 5.5rpx solid #EC5F9B; border-right: 5.5rpx solid #5A8FFF;"
+					:ripple="true" size="medium"  text="抽取一张女生纸条"></up-button>
 				<view style="display: flex;width: 100%;">
-					<up-button style="width: 50%;margin-right: 5rpx;" :ripple="true" size="medium" type="warning"
+					<up-button style="width: 50%;margin-right: 5rpx;" :ripple="true" size="medium" 
 						text="五连抽"></up-button>
 					<up-button style="width: 50%;margin-left: 5rpx;background-color: red" :ripple="true" size="medium"
-						type="warning" text="十连抽"></up-button>
+						 text="十连抽"></up-button>
 				</view>
 			</view>
 		</view>
 
 
-		<up-popup :show="putOpen" mode="bottom" round=10 @close="putOpen=false" @open="open">
+		<up-popup :show="putOpen" mode="bottom" round=10 @close="putOpen=false" @open="open" style="height: 50%;">
 			<view class="put_popup">
 				<view style="display: flex;align-items: center;">
 					<u-avatar size="30"
@@ -72,41 +76,50 @@
 				</view>
 				<view class="put_content">
 					<view
-						style="display: flex;background-color: black;color: white;width: 140rpx;border-radius: 10rpx;align-items: center;justify-content: center;height: 50rpx;">
+						style="display: flex;background-color: black;color: white;width: 140rpx;border-radius: 5rpx;align-items: center;justify-content: center;height: 60rpx;">
 						<up-icon name="map-fill" color="white" size="16"></up-icon>
 						<span style="font-size: 25rpx">北京市</span>
 					</view>
 					<view style="width:100%;margin: 30rpx 0rpx">
-						<up-textarea v-model="value1" placeholder="请输入内容">
+						<up-textarea style="border: none;" v-model="value1" placeholder="您的交友简介 (介绍自己或另一半的期待)...">
 
 						</up-textarea>
 
 					</view>
 					<view>
 						<up-upload :fileList="fileList" @afterRead="afterRead" @delete="deletePic" multiple
-							:maxCount="9"></up-upload>
+							:maxCount="9" uploadIcon=plus></up-upload>
 					</view>
 					<view style="display: flex;">
 						<view style="width: 30%;display: flex;justify-content: center;align-items: center;">
 
 							<up-dropdown>
 								<up-dropdown-item v-model="contactValue" :title="contactOption[contactValue].label"
-									:options="contactOption"></up-dropdown-item>
+									:options="contactOption" style="color: #000000;"></up-dropdown-item>
 							</up-dropdown>
 							<!-- 我的V号 -->
 						</view>
 						<view style="width: 70%;">
-							<up-textarea v-model="value2" height="20" placeholder="只有抽到你的人才能看到">
+							<up-textarea v-model="value2" height="20" placeholder="只有抽到你的人才能看到" style="border: none;">
 							</up-textarea>
 
 						</view>
 
 					</view>
-					<u-button style="margin:30rpx 0rpx;" type="primary" text="放入"></u-button>
+					
 
 				</view>
 
 			</view>
+      <view style="display: flex;justify-content: center; align-items: center;">
+        <span style="font-size: larger; font-weight: 550;">首次免费</span>
+      </view>
+      <view style="display: flex;justify-content: center; align-items: center;">
+        <u-button style=" margin:30rpx 0rpx; background-color: black; color: white ; width: 70%; border-left: 5.5rpx solid #EC5F9B; border-right: 5.5rpx solid #5A8FFF;"  text="塞入纸条"></u-button>
+      </view>
+      <view style="display: flex;justify-content: center; align-items: center; padding: 0rpx 30rpx;">
+        <span style="font-size: small; color: rgb(192, 196, 204);">温馨提示：纸条放入之后，平台将第一时间做初步审核，乱填信息者投放的纸条将会作废处理，并收取50%投放费用。</span>
+      </view>
 		</up-popup>
 
 
@@ -342,7 +355,7 @@
 	.card_left {
 		position: relative;
 		width: 50%;
-		height: 550rpx;
+		height: 620rpx;
 		border-radius: 25rpx;
 		display: flex;
 		flex-direction: column;
@@ -355,9 +368,9 @@
 	}
 
 	.card_right {
-    position: relative;
+		position: relative;
 		width: 50%;
-		height: 550rpx;
+		height: 620rpx;
 		border-radius: 25rpx;
 		display: flex;
 		flex-direction: column;
@@ -424,27 +437,49 @@
 		justify-content: center;
 		padding: 25rpx;
 		border: 5rpx solid black;
-		border-radius: 20rpx;
+		/* border-radius: 20rpx; */
 		margin-top: 15rpx;
 	}
-  .card_male {
-    z-index: 999;
-  }
-  .card_bgl {
-    position: absolute;
-    top: 110rpx;
-    z-index: 99;
-  }
-  .card_gender {
-    position: absolute;
-    top: 245rpx;
-    left: 200rpx;
-    z-index: 99;
-  }
-  .card_gender1 {
-    position: absolute;
-    top: 205rpx;
-    left: 190rpx;
-    z-index: 99;
-  }
+
+	.card_male {
+		z-index: 999;
+	}
+
+	.card_bgl {
+		position: absolute;
+		top: 110rpx;
+		z-index: 99;
+	}
+
+	.card_gender {
+		position: absolute;
+		top: 255rpx;
+		left: 200rpx;
+		z-index: 99;
+	}
+
+	.card_gender1 {
+		position: absolute;
+		top: 215rpx;
+		left: 180rpx;
+		z-index: 99;
+	}
+
+	::v-deep .u-dropdown__menu__item__text {
+		color: #000000 !important;
+		font-weight: bold;
+	}
+
+	::v-deep .u-cell__title-text {
+		color: #000000 !important;
+		font-weight: bold;
+	}
+
+	::v-deep .uicon-arrow-down {
+		color: #000000 !important;
+		font-weight: bold;
+	}
+  ::v-deep uni-view.u-transition.u-slide-up-enter-to.u-slide-up-enter-active {
+    height: 60%;
+}
 </style>
